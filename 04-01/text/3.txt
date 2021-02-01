@@ -1,0 +1,3 @@
+EISDIR error occurs when you try to open a file, but the path given is a directory. See related question and answer: Using Node.js I get, "Error: EISDIR, read".
+
+To debug this I would log to console the variable directpath and I would assume that it is pointing to a directory, not a file. Correctly setting this variable to the intended path should solve your problem.

@@ -1,0 +1,72 @@
+let connect = require('connect');
+let api = connect()
+    .use(users)
+    .use(pets)
+    .use(errorHandler);
+
+let app = connect()
+    .use(hello)
+    .use('/api', api)
+    .use(errorPage)
+    .listen(3000);
+
+function hello(req, res, next) {
+  if (req.url.match(/^\/hello/)) {
+    res.end('Hello Wo8rld\n');
+  } else {
+    let err = new Error('Page not found');
+    err.notFound = true;
+    next();
+  }
+}
+
+let db = {
+  users: ['tobi', 'loki', 'jane']
+};
+
+function users(req, res, next) {
+  let match = req.url.match(/^\/user\/(.+)/)
+  if (match) {
+    let user = db.users.includes(match[1]);
+    if (user) {
+      res.setHeader('Content-Type', 'application/json');
+      res.end(JSON.stringify(match[1]));
+    } else {
+      let err = new Error('User not found');
+      err.notFound = true;
+      next(err);
+    }
+  }
+}
+
+function pets(req, res, next) {
+  if (req.url.match(/^\/pet\/(.+)/)) {
+    foo();
+  } else {
+    next();
+  }
+}
+
+function errorHandler(err, req, res, next) {
+  console.error(err.stack);
+  res.setHeader('Conteng-Type', 'application/json');
+  if (err.notFound) {
+    res.statusCode = 404;
+    res.end(JSON.stringify({error: err.message}));
+  } else {
+    res.statusCode = 500;
+    res.end(JSON.stringify({error: 'Internal Server Error'}));
+  }
+}
+
+function errorPage(err, req, res, next) {
+  console.error(err.stack);
+  res.setHeader('Conteng-Type', 'application/json');
+  if (err.notFound) {
+    res.statusCode = 404;
+    res.end(JSON.stringify({error: err.message}));
+  } else {
+    res.statusCode = 500;
+    res.end(JSON.stringify({error: 'Internal Server Error'}));
+  }
+}

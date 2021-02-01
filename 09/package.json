@@ -1,0 +1,20 @@
+{
+  "name": "shoutbos",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./lib/user"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "ejs": "^2.6.2",
+    "express": "~4.16.1",
+    "node-gyp": "^7.0.0",
+    "redis": "^3.0.2"
+  }
+}

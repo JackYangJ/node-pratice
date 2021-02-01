@@ -1,0 +1,21 @@
+{
+  "name": "pratice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node mongoose.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "formidable": "^1.2.2",
+    "htmlparser": "^1.7.7",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.4",
+    "mysql": "^2.18.1",
+    "pg": "^7.18.2",
+    "redis": "^3.0.2",
+    "request": "^2.88.0"
+  }
+}

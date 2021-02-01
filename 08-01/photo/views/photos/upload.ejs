@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Upload a photo to your account below.</p>
+    <form method="post" enctype="multipart/form-data">
+      <p>
+        <input type="text" name="photoName"  placeholder="name" />
+      </p>
+      <p>
+        <input type="file" name="photoImg"  placeholder="name" />
+      </p>
+      <p>
+        <input type="submit" value="Upload" />
+      </p>
+    </form>
+    <p>Welcome to <%= title %></p>
+  </body>
+</html>
